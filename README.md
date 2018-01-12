@@ -1,0 +1,2 @@
+# btczbot
+BitcoinZ Community Chatbot
