@@ -2,7 +2,7 @@ const format = require('../format')
 const coinmarketcap = require('../api/coinmarketcap')
 const btczexplorer = require('../api/btczexplorer')
 
-module.exports.wallet = (reply, message) => {
+const wallet = (reply, message) => {
     const address = message.match[1]
 
     let BTCZBalance = 0,
@@ -36,3 +36,9 @@ module.exports.wallet = (reply, message) => {
         })
     })
 }
+
+module.exports.init = controller => controller.hears(
+    ['!wallet (.*)'],
+    'ambient,bot_message,direct_message,direct_mention,mention',
+    (bot, message) => wallet(bot.reply, message)
+)
