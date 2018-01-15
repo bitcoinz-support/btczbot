@@ -1,7 +1,7 @@
 const format = require('../format')
 const coinmarketcap = require('../api/coinmarketcap')
 
-module.exports.value = (reply, message) => {
+const value = (reply, message) => {
     const btcz = parseInt(message.match[1])
 
     let BTCValue = 0,
@@ -23,3 +23,9 @@ module.exports.value = (reply, message) => {
         callback()
     })
 }
+
+module.exports.init = controller => controller.hears(
+    ['!value (.*)'],
+    'ambient,bot_message,direct_message,direct_mention,mention',
+    (bot, message) => value(bot.reply, message)
+)

@@ -5,7 +5,7 @@ const btczexplorer = require('../api/btczexplorer')
 const blockSize = 12500
 const blockTime = 150
 
-module.exports.earnings = (reply, message) => {
+const earnings = (reply, message) => {
     const hashes = parseInt(message.match[1])
     const hours = parseInt(message.match[2]) || 24
 
@@ -34,3 +34,9 @@ module.exports.earnings = (reply, message) => {
         })
     })
 }
+
+module.exports.init = controller => controller.hears(
+    ['!earnings (.*) (.*)', '!earnings (.*)'],
+    'ambient,bot_message,direct_message,direct_mention,mention',
+    (bot, message) => earnings(bot.reply, message)
+)

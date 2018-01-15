@@ -17,7 +17,7 @@ module.exports.netowrkHashrate = () => {
     let data = cache.get(key)
 
     if (undefined !== data) {
-        return new Promise((resolve, reject) => resolve(data))
+        return Promise.resolve(data)
     }
 
     return request({
@@ -52,7 +52,7 @@ module.exports.getaddress = (address) => {
     let data = cache.get(key)
 
     if (undefined !== data) {
-        return new Promise((resolve, reject) => resolve(data))
+        return Promise.resolve(data)
     }
 
     return request({

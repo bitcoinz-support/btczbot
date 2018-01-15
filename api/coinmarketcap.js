@@ -27,13 +27,12 @@ const cache = new NodeCache({
  *
  * This api call is automatically cached for 5 minutes since coinmarketcap only updates once every 5 minutes.
  */
-
 module.exports.BTCZTicker = () => {
     let key = 'coinmarketcap-ticker'
     let data = cache.get(key)
 
     if (undefined !== data) {
-        return new Promise((resolve, reject) => resolve(data))
+        return Promise.resolve(data)
     }
 
     return request({
