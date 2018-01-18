@@ -19,7 +19,8 @@ const earnings = (reply, message) => {
             `${hours} Hour Profitability for *${format.hashrate(hashes)}*:\n` +
                 `- BTCZ: *${format.coins(BTCZEarnings)}*\n` +
                 `- BTC: *${format.coins(BTCEarnings)}*\n` +
-                `- USD: *${format.usd(USDEarnings)}*`
+                `- USD: *${format.usd(USDEarnings)}*\n` +
+                `Not accurate? Let @equipool.1ds.us know!`
         )
     }
 
