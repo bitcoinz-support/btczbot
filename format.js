@@ -39,4 +39,12 @@ module.exports.integer = integer => numeral(integer).format('0,0')
 
 module.exports.float = number => numeral(number).format('0,0.00')
 
-module.exports.coins = coins => numeral(coins).format('0,0.00000000')
+// NOTE: numeral library returns NaN when you try to format numbers less than
+// 100 satoshis. For this reason, we let numeral format the whole numbers since
+// decimals don't need commas, etc.
+module.exports.coins = coins => {
+    const whole = Math.trunc(coins)
+    const decimal = parseFloat(coins - whole)
+
+    return numeral(whole).format('0,0') + ('' + parseFloat(decimal).toFixed(8)).substr(1)
+}
