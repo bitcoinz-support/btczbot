@@ -37,8 +37,24 @@ const wallet = (reply, message) => {
     })
 }
 
-module.exports.init = controller => controller.hears(
-    ['!wallet (.*)'],
-    'ambient,bot_message,direct_message,direct_mention,mention',
-    (bot, message) => wallet(bot.reply, message)
-)
+module.exports.init = (controller, general) => {
+    controller.hears(
+        ['!wallet (.*)'],
+        'bot_message',
+        (bot, message) => message.channel == general
+            ? bot.reply(message, 'Please use #bot-chat for this command. (telegram: https://t.me/joinchat/GIIFnhKijb9hWUskgwpxoA)')
+            : wallet(bot.reply, message)
+    )
+
+    controller.hears(
+        ['!wallet (.*)'],
+        'ambient,mention',
+        (bot, message) => wallet(bot.whisper, message)
+    )
+
+    controller.hears(
+        ['!wallet (.*)'],
+        'direct_message,direct_mention',
+        (bot, message) => wallet(bot.reply, message)
+    )
+}

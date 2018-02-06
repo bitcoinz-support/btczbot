@@ -16,7 +16,7 @@ const stats = (reply, message) => {
     coinmarketcap.BTCZTicker().then(ticker => {
         stats.push(...[
             `Price: *${format.coins(ticker.price_btc)} BTC (${format.usd(ticker.price_usd)})*`,
-            `25hr Vol (USD): *${format.usd(ticker['24h_volume_usd'])}*`,
+            `24hr Vol (USD): *${format.usd(ticker['24h_volume_usd'])}*`,
             `Market Cap: *${format.usd(ticker.market_cap_usd)}*`,
             `Supply: *${format.integer(ticker.total_supply)} BTCZ*`,
         ])
@@ -48,9 +48,25 @@ const stats = (reply, message) => {
     })
 }
 
-module.exports.init = controller => controller.hears(
-    ['!stats'],
-    'ambient,bot_message,direct_message,direct_mention,mention',
-    (bot, message) => stats(bot.reply, message)
-)
+module.exports.init = (controller, general) => {
+    controller.hears(
+        ['!stats'],
+        'bot_message',
+        (bot, message) => message.channel == general
+            ? bot.reply(message, 'Please use #bot-chat for this command. (telegram: https://t.me/joinchat/GIIFnhKijb9hWUskgwpxoA)')
+            : stats(bot.reply, message)
+    )
+
+    controller.hears(
+        ['!stats'],
+        'ambient,mention',
+        (bot, message) => stats(bot.whisper, message)
+    )
+
+    controller.hears(
+        ['!stats'],
+        'direct_message,direct_mention',
+        (bot, message) => stats(bot.reply, message)
+    )
+}
 

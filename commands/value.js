@@ -24,8 +24,24 @@ const value = (reply, message) => {
     })
 }
 
-module.exports.init = controller => controller.hears(
-    ['!value (.*)'],
-    'ambient,bot_message,direct_message,direct_mention,mention',
-    (bot, message) => value(bot.reply, message)
-)
+module.exports.init = (controller, general) => {
+    controller.hears(
+        ['!value (.*)'],
+        'bot_message',
+        (bot, message) => message.channel == general
+            ? bot.reply(message, 'Please use #bot-chat for this command. (telegram: https://t.me/joinchat/GIIFnhKijb9hWUskgwpxoA)')
+            : value(bot.reply, message)
+    )
+
+    controller.hears(
+        ['!value (.*)'],
+        'ambient,mention',
+        (bot, message) => value(bot.whisper, message)
+    )
+
+    controller.hears(
+        ['!value (.*)'],
+        'direct_message,direct_mention',
+        (bot, message) => value(bot.reply, message)
+    )
+}
