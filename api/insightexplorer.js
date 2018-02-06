@@ -42,3 +42,23 @@ module.exports.status = () => {
     })
 }
 
+module.exports.difficulty = () => {
+    let key = 'insightexplorer-difficulty'
+    let data = cache.get(key)
+
+    if (undefined !== data) {
+        return Promise.resolve(data)
+    }
+
+    return request({
+        uri: 'https://explorer.btcz.rocks/api/chart/difficulty',
+        json: true,
+    }).then(body => {
+        const difficulties = body.data.json.difficulty
+        const average = difficulties.reduce((p, c) => p + c, 0) / difficulties.length
+        // console.warn(difficulties, average)
+
+        cache.set(key, average)
+        return average
+    })
+}
