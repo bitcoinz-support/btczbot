@@ -32,6 +32,12 @@ module.exports.init = controller => {
         })
     })
 
+    controller.hears(['hug'], 'direct_message,direct_mention,mention', (bot, message) => {
+        controller.storage.users.get(message.user, (err, user) => {
+            bot.reply(message, 'https://media1.tenor.com/images/ed97cd0ef2c9a1f3e8893e44a80632d4/tenor.gif')
+        })
+    })
+
     controller.hears(['lol', ':laughing:'], 'direct_message,direct_mention,mention', (bot, message) => {
         controller.storage.users.get(message.user, (err, user) => {
             if (user && user.name) {
@@ -115,7 +121,7 @@ module.exports.init = controller => {
         })
     })
 
-    controller.hears(['uptime', 'identify yourself', 'who are you', 'what is your name'], 'ambient,bot_message', (bot, message) => {
+    controller.hears(['uptime', 'identify yourself', 'who are you', 'what is your name'], 'ambient,bot_message,mention,direct_mention', (bot, message) => {
         const hostname = os.hostname()
         const uptime = format.uptime(process.uptime())
 
@@ -132,5 +138,53 @@ module.exports.init = controller => {
 
             bot.reply(message, 'Hello!')
         })
+    })
+
+    controller.hears(['where you at', 'where are you'], 'direct_message,direct_mention,mention', (bot, message) => {
+        controller.storage.users.get(message.user, (err, user) => {
+            if (user && user.name) {
+                return bot.reply(message, 'I\'m right here, ' + user.name + '!!')
+            }
+
+            bot.reply(message, 'I\'m right here, man!')
+        })
+    })
+
+    controller.hears(['good night', 'good nite'], 'direct_message,direct_mention,mention', (bot, message) => {
+        controller.storage.users.get(message.user, (err, user) => {
+            if (user && user.name) {
+                return bot.reply(message, 'Sleep tight, ' + user.name + '!!')
+            }
+
+            bot.reply(message, 'Sleep tight!')
+        })
+    })
+
+    controller.hears(['you\'re (.*) fat'], 'direct_message,direct_mention,mention', (bot, message) => {
+        bot.reply(message, 'Thanks, skinny!')
+    })
+
+    controller.hears(['you\'re funny'], 'direct_message,direct_mention,mention', (bot, message) => {
+        bot.reply(message, 'Funny looking!')
+    })
+
+    controller.hears(['price falling', 'prices falling', 'prices are falling', 'btcz going down'], 'direct_message,direct_mention,mention', (bot, message) => {
+        const msg = "BTCZ's price doesn't matter. It's not the coin of today, it's the coin of tomorrow.\n\n Don't worry, buddy. It's not going anywhere. BTCZ is here to stay!";
+
+        controller.storage.users.get(message.user, (err, user) => {
+            if (user && user.name) {
+                return bot.reply(message, 'Sigh. Let me tell you something, ' + user.name + '.. ' + msg)
+            }
+
+            bot.reply(message, 'Listen closely... ' + msg)
+        })
+    })
+
+    controller.hears(['ping'], 'direct_message,direct_mention,mention', (bot, message) => {
+        bot.reply(message, 'pong!')
+    })
+
+    controller.hears(['.*'], 'direct_message,direct_mention,mention', (bot, message) => {
+        bot.reply(message, 'Don\'t talk to me that way!')
     })
 }
