@@ -51,6 +51,8 @@ This bot demonstrates many of the core features of Botkit:
     -> http://howdy.ai/botkit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+const general = 'C77B7UY80'
+
 if (!process.env.token) {
     console.log('Error: Specify token in environment')
     process.exit(1)
@@ -62,20 +64,12 @@ const format = require('./format')
 var controller = Botkit.slackbot({
     debug: true,
     json_file_store: './db',
+    retry: Infinity,
 })
 
 var bot = controller.spawn({
     token: process.env.token
 }).startRTM()
-
-/*********
- * Chatter
- *********/
-const random = require('./commands/random')
-const support = require('./commands/support')
-
-random.init(controller)
-support.init(controller)
 
 /**********
  * Commands
@@ -85,10 +79,19 @@ const earningsCommand = require('./commands/earnings')
 const valueCommand = require('./commands/value')
 const walletCommand = require('./commands/wallet')
 
-statsCommand.init(controller)
-earningsCommand.init(controller)
-valueCommand.init(controller)
-walletCommand.init(controller)
+/*********
+ * Chatter
+ *********/
+const random = require('./commands/random')
+const support = require('./commands/support')
 const jokeCommand = require('./commands/joke')
+
+support.init(controller)
 jokeCommand.init(controller)
+random.init(controller)
+
+statsCommand.init(controller, general)
+earningsCommand.init(controller, general)
+valueCommand.init(controller, general)
+walletCommand.init(controller, general)
 jokeCommand.init(controller)
