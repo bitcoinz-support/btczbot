@@ -4,5 +4,7 @@ services:
   bot:
     build:
       context: .
+    environment:
+      - token=YOUR_TOKEN
     volumes:
       - ./:/bot
