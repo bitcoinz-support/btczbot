@@ -42,7 +42,7 @@ module.exports.init = controller => {
     controller.hears(['!wallet', '!wallets'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
         bot.reply(
             message,
-            'The best, most secure and stable wallet is the full node wallet, also known as the swing wallet: https://github.com/bitcoinz-pod/bitcoinz-wallet/releases\n\n' +
+            'The best, most secure and stable wallet is the full node wallet, also known as the swing wallet: https://github.com/btcz/bitcoinz-wallet/releases\n\n' +
             'Also available is a community managed bitpay wallet fork, available at https://github.com/bitcoinz-wallets/bitcoinz-copay-wallet/releases with builds for iOS and Linux.\n\n' +
             '*Android wallets*:\n' +
             '- https://play.google.com/store/apps/details?id=com.btczcom.btcz (community managed)\n' +
