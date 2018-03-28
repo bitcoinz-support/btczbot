@@ -17,8 +17,7 @@ const earnings = (reply, message) => {
         `${hours} Hour Profitability for *${format.hashrate(hashes)}* (based on the last 8 hrs of difficulty):\n` +
             `- BTCZ: *${format.coins(BTCZEarnings)}*\n` +
             `- BTC: *${format.coins(BTCEarnings)}*\n` +
-            `- USD: *${format.usd(USDEarnings)}*\n` +
-            `Not accurate? Let @equipool.1ds.us know!`
+            `- USD: *${format.usd(USDEarnings)}*\n`
     )
 
     insightexplorer.difficulty().then(difficulty => {
