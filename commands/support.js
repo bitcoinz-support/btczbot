@@ -86,11 +86,10 @@ module.exports.init = controller => {
         bot.reply(
             message,
             '*Vote for BTCZ:*\n' +
-            '- https://feedback.coinfalcon.com/feature-request/p/coin-bitcoinz-btcz\n' +
             '- https://cobinhood.canny.io/token-listing/p/list-bitcoinzbtcz-on-cobinhood\n' +
             '- https://nextexchange.featureupvote.com/suggestions/2405/bitcoinz-btcz\n' +
-            '*Vote on issues:*\n' +
-            '- Ledger Nano S Wallets(https://goo.gl/RoysAE): http://www.strawpoll.me/14976387'
+            '*Other items needing votes:*\n' +
+            '- https://forum.btcz.rocks/t/vote-for-bitcoinz-btcz/198'
         )
     })
 
