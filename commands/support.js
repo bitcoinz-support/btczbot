@@ -1,8 +1,9 @@
 module.exports.init = controller => {
-    controller.hears(['!lotto', '!lottery'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
+    controller.hears(['!faq'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
+        // TODO: add stats about current status of donations
         bot.reply(
             message,
-            'Check out https://hash4.btcz.rocks/ to learn about how to donate to the community and enter the weekly drawing for 10% of the donations!'
+            'Our Frequently Asked Questions (FAQ) can be found at https://goo.gl/jvp3eH.'
         )
     })
 
@@ -12,7 +13,8 @@ module.exports.init = controller => {
         bot.reply(
             message,
             '\nBitcoinZ Donations Site:\n' +
-            '- https://btcz.fund/'
+            '- https://btcz.fund/\n\n' +
+            'Learn more at: https://goo.gl/zJDCgA'
         )
     })
 
@@ -25,6 +27,24 @@ module.exports.init = controller => {
     controller.hears(['!help', '!commands'], 'bot_message', (bot, message) => bot.reply(message, help))
 
 
+    controller.hears(['!logo', '!logos'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
+        bot.reply(
+            message,
+            'The latest BitcoinZ logo pack: https://btcz.rocks/media/bitcoinz_btcz_logos.zip\n' +
+            'You can also find tons of BitcoinZ marketing materials on the forum at https://forum.btcz.rocks/t/marketing-material-repository/29'
+        )
+    })
+
+
+    controller.hears(['!lotto', '!lottery'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
+        bot.reply(
+            message,
+            'Check out https://hash4.btcz.rocks/ to learn about how to donate to the community and enter the weekly drawing for 10% of the donations!\n\n' +
+            'Get our wicked awesome gui LotteryMiner at https://github.com/bitcoinz-support/hash4btcz-miner#hash4btcz-miner!'
+        )
+    })
+
+
     controller.hears(['!merch', '!merchandise'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
         bot.reply(
             message,
@@ -35,6 +55,41 @@ module.exports.init = controller => {
             '\nBuy BTCZ branded Merchandise:\n' +
             '- https://fineartamerica.com/profiles/boudraa-momo/shop\n' +
             '- https://shop.spreadshirt.com/BitcoinZ/'
+        )
+    })
+
+
+    controller.hears(['!my-coins!'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
+        bot.reply(
+            message,
+            'Your  coins are safely stored in the blockchain. They\'re not going anywhere. ' +
+            'The only potential way to lose your coins is if you lose your private key or seed. So.. ' +
+            'how do you "get your coins back"? When you open the wallet, tap on "recreate wallet". ' +
+            'Next, you need to go to `settings -> Select wallet -> more options -> addresses -> scan addresses for funds`. ' +
+            'After this completes, your wallet should be good-to-go, with all of the transactions. ' +
+            'If you notice transactions missing in the future, do this process again and they should be restored. ' +
+            'Remember, your coins are stored in the blockchain. All this wallet does is provide you with a graphical interface to your coins (using your private key).'
+        )
+    })
+
+
+    controller.hears(['!pools', '!mining'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
+        bot.reply(
+            message,
+            'Current pools: https://forum.btcz.rocks/t/pools-that-love-the-bitcoinz-community/51\n' +
+            'Mining guide: https://btcz.rocks/media/BitcoinZ_WALLET+MINING_GUIDE.pdf'
+        )
+    })
+
+
+    controller.hears(['!vote'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
+        bot.reply(
+            message,
+            '*Vote for BTCZ:*\n' +
+            '- https://cobinhood.canny.io/token-listing/p/list-bitcoinzbtcz-on-cobinhood\n' +
+            '- https://nextexchange.featureupvote.com/suggestions/2405/bitcoinz-btcz\n' +
+            '*Other items needing votes:*\n' +
+            '- https://forum.btcz.rocks/t/vote-for-bitcoinz-btcz/198'
         )
     })
 
@@ -59,24 +114,10 @@ module.exports.init = controller => {
     })
 
 
-    controller.hears(['!pools', '!mining'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
+    controller.hears(['!why'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
         bot.reply(
             message,
-            'Current pools: https://bitcoinzguiding.ovh/pools.html\n' +
-            'Mining guide: https://btcz.rocks/media/BitcoinZ_WALLET+MINING_GUIDE.pdf'
-        )
-    })
-
-
-    controller.hears(['!vote'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
-        bot.reply(
-            message,
-            '*Vote for BTCZ:*\n' +
-            '- https://feedback.coinfalcon.com/feature-request/p/coin-bitcoinz-btcz\n' +
-            '- https://cobinhood.canny.io/token-listing/p/list-bitcoinzbtcz-on-cobinhood\n' +
-            '- https://nextexchange.featureupvote.com/suggestions/2405/bitcoinz-btcz\n' +
-            '*Vote on issues:*\n' +
-            '- Ledger Nano S Wallets(https://docs.google.com/document/d/1wx90oPq_gfZAYYjbF_QfJ2586NUs7oUjLDRhoezwO8I/edit?usp=sharing): http://www.strawpoll.me/14976387'
+            'Because, https://vimeo.com/254630434'
         )
     })
 
@@ -84,47 +125,7 @@ module.exports.init = controller => {
     controller.hears(['!winblows-wallet'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
         bot.reply(
             message,
-            'So sorry about any inconvenience that the swing wallet not working has caused!\n\n' +
-            'Try some (or all) of the following and hopefully your issue will be resolved.\n' +
-            '*First and foremost, close the wallet. Next, create a backup of your data directory - (%AppData%\\BitcoinZ)!* Do this before proceeding.\n\n' +
-
-            '*Seed nodes*:\n' +
-            '- Goto Start -> type in the box %AppData%\\BitcoinZ\n' +
-            '- Edit the bitcoinz.conf file and add these nodes - just paste them into the file:\n' +
-            '```\n' +
-            'addnode=136.33.111.57\n' +
-            'addnode=52.207.253.9\n' +
-            'addnode=34.211.79.94\n' +
-            'addnode=148.251.6.58\n' +
-            'addnode=38.99.163.72\n' +
-            'addnode=62.12.7.151\n' +
-            'addnode=52.50.226.122\n' +
-            'addnode=46.101.249.50\n' +
-            'addnode=btzseed.blockhub.info\n' +
-            'addnode=dnsseed.kemperink.org\n' +
-            'addnode=seeder.nomadteam.net\n' +
-            'addnode=btcz.webrats.com\n' +
-            'addnode=btcz.es\n' +
-            'addnode=seed.btcz.life\n' +
-            'addnode=btcz.vnminers.com\n' +
-            'addnode=ajnnljf6ybwyazfw.onion\n' +
-            '```\n' +
-            'NOTE: Discord/Telegram users -- the relay bot may have added `http://` to some of them. Please remove it! None of the `addnode=` should have `http://`.\n' +
-            '- Save, close the file and see if this fixes your issue.\n\n' +
-
-            '*Clear and re-fetch the blockchain*:\n' +
-            '- Download a blockchain bootstrap from: https://s3-us-west-1.amazonaws.com/cryptochainer/blockchains/BitcoinZ_blockchain.zip\n' +
-            '- Delete everything but the wallet.dat and bitcoinz.conf from %AppData%\\BitcoinZ.\n' +
-            '- Extract the downloaded zip file into %AppData%\\BitcoinZ\n' +
-            '- Start the wallet again'
-        )
-    })
-
-
-    controller.hears(['!why'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
-        bot.reply(
-            message,
-            'Because, https://www.youtube.com/watch?v=2zaOVFLt858'
+            'Please see the following link for tips to get your Swing  Wallet working again! https://goo.gl/MhMZpz'
         )
     })
 }
