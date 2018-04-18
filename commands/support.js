@@ -94,6 +94,7 @@ module.exports.init = controller => {
             '- https://feedback.altcoinexchange.com/suggestions/2021/bitcoinz-btcz-pow-equihash-algorithm\n' +
             '- https://support.cex.io/hc/en-us/community/posts/115002759994-NEW-BitcoinZ-BTCZ-Please-Vote\n' +
             '- https://mercatox.com/coins/list?name=btcz\n' +
+            '- https://lescovex.featureupvote.com/suggestions/6864/bitcoinz-btcz\n' +
             '*Info of exchanges:*\n' +
             '- https://info.btcz.rocks/#Exchanges'
         )
