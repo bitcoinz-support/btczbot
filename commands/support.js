@@ -137,7 +137,7 @@ module.exports.init = controller => {
             'Facebook - https://www.facebook.com/BTCZCommunity\n' +
             'Twitter - https://twitter.com/BitcoinZTeam\n' +
             'Youtube - https://www.youtube.com/channel/UC2MBhoVK45Eqp2cMb2bFuUA\n' +
-            'Instagram- https://slack.btcz.rocks/\n' +
+            'Instagram- https://www.instagram.com/bitcoinzcommunity\n' +
             'Slack - https://slack.btcz.rocks\n' +
             'Telegram - https://t.me/bitcoinzcommunity\n' +
             'Discord - https://discordapp.com/invite/u3dkbFs\n' +
