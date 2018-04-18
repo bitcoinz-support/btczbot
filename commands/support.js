@@ -87,7 +87,7 @@ module.exports.init = controller => {
             message,
             '*Vote for BTCZ:*\n' +
             '- https://dontoshi.featureupvote.com/suggestions/7500/bitcoinz-btcz\n' +
-            '- hhttps://request.coinpulse.io/suggestions/5767/bitcoinz-btcz\n' +
+            '- https://request.coinpulse.io/suggestions/5767/bitcoinz-btcz\n' +
             '- https://coindeal.com/vote\n' +
             '- https://nextexchange.featureupvote.com/suggestions/2405/bitcoinz-btcz\n' +
             '- https://feedback.coinfalcon.com/coin-request/p/bitcoinz-btcz-1\n' +
@@ -95,7 +95,7 @@ module.exports.init = controller => {
             '- https://support.cex.io/hc/en-us/community/posts/115002759994-NEW-BitcoinZ-BTCZ-Please-Vote\n' +
             '- https://mercatox.com/coins/list?name=btcz\n' +
             '*Info of exchanges:*\n' +
-            '- https://info.btcz.rocks/#exchanges'
+            '- https://info.btcz.rocks/#Exchanges'
         )
     })
 
