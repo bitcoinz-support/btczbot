@@ -135,6 +135,24 @@ module.exports.init = controller => {
             'Please see the following link for tips to get your Swing  Wallet working again! https://goo.gl/MhMZpz'
         )
     })
+    
+
+    controller.hears(['!social'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
+        bot.reply(
+            message,
+            '*Follow BTCZ:*\n' +
+            'Facebook - https://www.facebook.com/BTCZCommunity\n' +
+            'Twitter - https://twitter.com/BitcoinZTeam\n' +
+            'Youtube - https://www.youtube.com/channel/UC2MBhoVK45Eqp2cMb2bFuUA\n' +
+            'Instagram- https://www.instagram.com/bitcoinzcommunity\n' +
+            'Slack - https://slack.btcz.rocks\n' +
+            'Telegram - https://t.me/bitcoinzcommunity\n' +
+            'Discord - https://discordapp.com/invite/u3dkbFs\n' +
+            'Reddit - https://www.reddit.com/r/BTCZCommunity\n' +
+            'Bitcointalk - https://bitcointalk.org/index.php?topic=3086664.0\n' +
+            'Forum - https://forum.btcz.rocks\n'
+        )
+    })
 }
 
 // TODO:
