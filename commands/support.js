@@ -86,10 +86,17 @@ module.exports.init = controller => {
         bot.reply(
             message,
             '*Vote for BTCZ:*\n' +
-            '- https://cobinhood.canny.io/token-listing/p/list-bitcoinzbtcz-on-cobinhood\n' +
+            '- https://dontoshi.featureupvote.com/suggestions/7500/bitcoinz-btcz\n' +
+            '- https://request.coinpulse.io/suggestions/5767/bitcoinz-btcz\n' +
+            '- https://coindeal.com/vote\n' +
             '- https://nextexchange.featureupvote.com/suggestions/2405/bitcoinz-btcz\n' +
-            '*Other items needing votes:*\n' +
-            '- https://forum.btcz.rocks/t/vote-for-bitcoinz-btcz/198'
+            '- https://feedback.coinfalcon.com/coin-request/p/bitcoinz-btcz-1\n' +
+            '- https://feedback.altcoinexchange.com/suggestions/2021/bitcoinz-btcz-pow-equihash-algorithm\n' +
+            '- https://support.cex.io/hc/en-us/community/posts/115002759994-NEW-BitcoinZ-BTCZ-Please-Vote\n' +
+            '- https://mercatox.com/coins/list?name=btcz\n' +
+            '- https://lescovex.featureupvote.com/suggestions/6864/bitcoinz-btcz\n' +
+            '*Info of exchanges:*\n' +
+            '- https://info.btcz.rocks/#Exchanges'
         )
     })
 
