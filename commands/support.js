@@ -109,14 +109,15 @@ module.exports.init = controller => {
             '*Android wallets*:\n' +
             '- https://play.google.com/store/apps/details?id=com.btczcom.btcz (community managed)\n' +
             '- Coinomi Wallet: https://play.google.com/store/apps/details?id=com.coinomi.wallet\n\n' +
+            '*iOS wallets*:\n' +
+            '- Coinomi Wallet: https://itunes.apple.com/us/app/coinomi-wallet/id1333588809.\n' +
             '*Paper wallets*:\n' +
             '- https://paper.btcz.rocks\n\n' +
             '*Web-based wallets*:\n' +
             '- https://www.mybitcoinzwallet.com.\n\n' +
             'Use Delta to manage your crypto portfolio (BTCZ supported):\n' +
             '- Android:  https://play.google.com/store/apps/details?id=io.getdelta.android\n' +
-            '- IOS: https://itunes.apple.com/us/app/apple-store/id1288676542.\n\n' +
-            'Coinomi should be releasing one on IOS soon.'
+            '- IOS: https://itunes.apple.com/us/app/apple-store/id1288676542.\n\n'
         )
     })
 
