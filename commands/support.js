@@ -22,9 +22,21 @@ module.exports.init = controller => {
     const help = '*Dynamic bot commands:*\n' +
         '!stats, !earnings {sols/s} {hours (optional)}, !value {btcz-amount}, !wallet {btcz-wallet}\n' +
         '*Static bot commands:*\n' +
-        '!why, !wallet, !merch, !fund, !lottery, !logos, !pools, !faq, !donate, !my-coins!, !exchanges, !vote'
+        '!why, !wallet, !merch, !fund, !lottery, !logos, !pools, !faq, !donate, !my-coins!, !exchanges, !vote, !tx-failed'
     controller.hears(['!help', '!commands'], 'ambient,direct_message,direct_mention,mention', (bot, message) => bot.whisper(message, help))
     controller.hears(['!help', '!commands'], 'bot_message', (bot, message) => bot.reply(message, help))
+
+
+    controller.hears(['!tx-failed'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
+        bot.reply(
+            message,
+            'If you\'re trying to send coins from a wallet that you mine to and the transaction is failing, it may be that the transaction has too many inputs.\n' +
+            'There is a restriction in the blockchain that limits how many inputs are allowed per transaction to keep someone from executing a denial of service attack.\n' +
+            'This issue comes from upstream (Zcash) and can be followed here: https://github.com/zcash/zcash/issues/1970.\n\n' +
+            'One way to work around this issue for now is to try sending a smaller amount. Keep decreasing the transaction amount until it succeeds. ' +
+            'In addition, you can decrease your transaction fee to 0.0001 or use the Economy transaction fee in the light Wallet.'
+        )
+    })
 
 
     controller.hears(['!logo', '!logos'], 'ambient,bot_message,direct_message,direct_mention,mention', (bot, message) => {
