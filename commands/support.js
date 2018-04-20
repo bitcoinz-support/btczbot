@@ -22,7 +22,7 @@ module.exports.init = controller => {
     const help = '*Dynamic bot commands:*\n' +
         '!stats, !earnings {sols/s} {hours (optional)}, !value {btcz-amount}, !wallet {btcz-wallet}\n' +
         '*Static bot commands:*\n' +
-        '!why, !wallet, !merch, !fund, !lottery, !logos, !pools, !faq, !donate, !my-coins!, !exchanges, !vote, !tx-failed'
+        '!why, !wallet, !merch, !fund, !lottery, !logos, !pools, !faq, !donate, !my-coins!, !exchanges, !vote, !social, !tx-failed'
     controller.hears(['!help', '!commands'], 'ambient,direct_message,direct_mention,mention', (bot, message) => bot.whisper(message, help))
     controller.hears(['!help', '!commands'], 'bot_message', (bot, message) => bot.reply(message, help))
 
